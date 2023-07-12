@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Welcome to Your InvestBros Dashboard!</h1>
+  <p>Track your stocks in real time.</p>
+  <div id="stock-container">
+    <!-- This is where we'll inject the stock data -->
+  </div>
+  <button id="addStockBtn" class="btn">Add Stocks</button>
+  <div id="addStockForm" style="display: none">
+    <form action="/addStock" method="POST">
+      <input type="text" name="symbol" placeholder="Stock Symbol" required />
+      <input
+        type="number"
+        name="shares"
+        placeholder="Number of Shares"
+        required
+      />
+      <input
+        type="number"
+        step="0.01"
+        name="purchasePrice"
+        placeholder="Purchase Price"
+        required
+      />
+      <input
+        type="date"
+        name="purchaseDate"
+        placeholder="Date of Purchase"
+        required
+      />
+      <button type="submit" class="btn">Add to Portfolio</button>
+    </form>
+  </div>
+  <a href="/logout" class="btn">Logout</a>
+</div>
