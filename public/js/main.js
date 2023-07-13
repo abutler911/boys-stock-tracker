@@ -6,3 +6,11 @@ document.getElementById("addStockBtn").addEventListener("click", function () {
     form.style.display = "none";
   }
 });
+
+let stockDataElement = document.getElementById("stock-data");
+stockDataElement.innerHTML = `<tr>
+  <td>${symbol}</td>
+  <td>${shares}</td>
+  <td>${purchasePrice}</td>
+  <td>${lossGain}</td>
+</tr>`;

@@ -14,6 +14,8 @@ const flash = require("connect-flash");
 const registerRoutes = require("./routes/registerRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 const loginRoutes = require("./routes/loginRoutes");
+const addStocksRoutes = require("./routes/addStocksRoutes");
+
 const connectDB = require("./config/database");
 const passportConfig = require("./config/passportConfig");
 
@@ -63,6 +65,7 @@ app.use((req, res, next) => {
 app.use("/", registerRoutes);
 app.use("/", loginRoutes);
 app.use("/", dashboardRoutes);
+app.use("/", addStocksRoutes);
 
 app.get("/", (req, res) => {
   res.render("home");

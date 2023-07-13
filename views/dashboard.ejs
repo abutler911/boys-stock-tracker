@@ -1,12 +1,35 @@
 <div class="container">
   <h1>Welcome to Your InvestBros Dashboard!</h1>
   <p>Track your stocks in real time.</p>
+  <h1>Welcome, <%= user.username %>!</h1>
+
   <div id="stock-container">
-    <!-- This is where we'll inject the stock data -->
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th>Stock Symbol</th>
+          <th>Number of Shares</th>
+          <th>Purchase Price</th>
+          <th>Total Loss/Gain</th>
+        </tr>
+      </thead>
+      <tbody id="stock-data">
+        <% user.stocks.forEach(stock => { %>
+        <tr>
+          <td><%= stock.tickerSymbol %></td>
+          <td><%= stock.sharesOwned %></td>
+          <td><%= stock.purchasePrice %></td>
+          <td><%= stock.lossGain %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
   </div>
   <button id="addStockBtn" class="btn">Add Stocks</button>
   <div id="addStockForm" style="display: none">
     <form action="/addStock" method="POST">
+      <input type="hidden" name="userId" value="<%= user._id %>" />
+
       <input type="text" name="symbol" placeholder="Stock Symbol" required />
       <input
         type="number"
