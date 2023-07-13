@@ -9,6 +9,7 @@ const expressLayouts = require("express-ejs-layouts");
 const axios = require("axios");
 const session = require("express-session");
 const flash = require("connect-flash");
+const User = require("./models/User");
 
 // Local imports
 const registerRoutes = require("./routes/registerRoutes");
@@ -52,6 +53,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 passportConfig(passport);
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
 // Flash messages
 app.use(flash());
 app.use((req, res, next) => {
@@ -80,6 +86,11 @@ app.get("/stocks/:symbol", async (req, res) => {
   } catch (error) {
     res.json({ message: error.message });
   }
+});
+app.get("/userstocks/:userId", async (req, res) => {
+  const userId = req.params.userId;
+  const user = await User.findById(userId);
+  res.json(user.stocks);
 });
 
 // Server

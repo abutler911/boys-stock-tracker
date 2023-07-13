@@ -11,8 +11,11 @@
           <th>Number of Shares</th>
           <th>Purchase Price</th>
           <th>Total Loss/Gain</th>
+          <th>Current Stock Price</th>
+          <!-- New Column -->
         </tr>
       </thead>
+
       <tbody id="stock-data">
         <% user.stocks.forEach(stock => { %>
         <tr>
@@ -20,6 +23,8 @@
           <td><%= stock.sharesOwned %></td>
           <td><%= stock.purchasePrice %></td>
           <td><%= stock.lossGain %></td>
+          <td id="<%= stock.tickerSymbol %>Price"></td>
+          <!-- New Cell for current price -->
         </tr>
         <% }); %>
       </tbody>

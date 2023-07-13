@@ -6,7 +6,6 @@
 }
 
 body {
-
     background-color: #292929;
     color: #FFFFFF;
     display: flex;
@@ -16,12 +15,9 @@ body {
     text-align: center;
 }
 
-
-
 .container {
     width: 100%;
     margin: auto;
-
 }
 
 h1 {
@@ -78,7 +74,6 @@ input {
     background-color: #f2f2f2;
 }
 
-
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem;
@@ -88,31 +83,5 @@ input {
         display: block;
         width: 100%;
         margin: 0.5em auto;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .responsive-table thead {
-        display: none;
-    }
-
-    .responsive-table td {
-        display: block;
-    }
-
-    .responsive-table td:first-child:before {
-        content: "Stock Symbol: ";
-    }
-
-    .responsive-table td:nth-child(2):before {
-        content: "Number of Shares: ";
-    }
-
-    .responsive-table td:nth-child(3):before {
-        content: "Purchase Price: ";
-    }
-
-    .responsive-table td:nth-child(4):before {
-        content: "Total Loss/Gain: ";
     }
 }
